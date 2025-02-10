@@ -64,3 +64,5 @@ for episode_i in range(NUM_EPISODES):
     print(f"Episode {episode_i}, Reward: {round(episode_reward, 2)}")  ## Corrected indentation
 
 env.close()
+
+np.savetxt(current_path + f'/ppo_reward_{timestamp}.txt', REWARD_BUFFER)
