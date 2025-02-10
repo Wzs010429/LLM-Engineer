@@ -65,4 +65,4 @@ for episode_i in range(NUM_EPISODES):
 
 env.close()
 
-np.savetxt(current_path + f'/ppo_reward_{timestamp}.txt', REWARD_BUFFER)
+np.savetxt(current_dir + f'/ppo_reward_{timestamp}.txt', REWARD_BUFFER)
