@@ -3,6 +3,7 @@ import os
 import time
 import torch
 import numpy as np
+from ppo_agent import PPOAgent
 
 scenario = "Pendulum-v1"
 env = gym.make(scenario)
@@ -27,7 +28,7 @@ UPDATE_EVERY = 50
 
 REWARD_BUFFER = np.empty(shape=NUM_EPISODES)
 
-agent = PPOAgent(STATE_DIM, ACTION_DIM)  ## TODO: Implement PPOAgent class
+agent = PPOAgent(STATE_DIM, BATCH_SIZE, ACTION_DIM)  ## Corrected initialization
 
 
 ## Training loop
@@ -56,11 +57,10 @@ for episode_i in range(NUM_EPISODES):
         ## Save the policy
         best_reward = episode_reward
         agent.save_policy()
-        torch.save(agent.policy.state_dict(), model_file + "\ppo_actor_{timestamp}" + ".pth")
+        torch.save(agent.actor.state_dict(), model_file + f"ppo_actor_{timestamp}.pth")  ## Corrected save path
         print(f"best reward: {best_reward} at episode {episode_i}")
 
-
-        REWARD_BUFFER[episode_i] = episode_reward
-        print(f"Episode {episode_i}, Reward: {round(episode_reward, 2)}") 
+    REWARD_BUFFER[episode_i] = episode_reward  ## Moved outside the if condition
+    print(f"Episode {episode_i}, Reward: {round(episode_reward, 2)}")  ## Corrected indentation
 
 env.close()
