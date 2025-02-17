@@ -134,7 +134,7 @@ class PPOAgent:
                 discount = 1
                 a_t = 0
                 for k in range(t, T-1):
-                    a_t +=  memo_rewards[k] + self.GAMMA * memo_values[k+1] * (1-int(memo_dones[k])) - memo_values[k]
+                    a_t +=  discount * (memo_rewards[k] + self.GAMMA * memo_values[k+1] * (1-int(memo_dones[k])) - memo_values[k])
                     discount *= self.GAMMA * self.LAMBDA
                 memo_Advantage[t] = a_t
             

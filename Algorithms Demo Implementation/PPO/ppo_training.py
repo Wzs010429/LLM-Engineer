@@ -6,6 +6,7 @@ import numpy as np
 from ppo_agent import PPOAgent
 
 scenario = "Pendulum-v1"
+# action value domain: [-2, 2] Pendulum-v1
 env = gym.make(scenario)
 
 NUM_EPISODES = 3000
