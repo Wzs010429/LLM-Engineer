@@ -37,6 +37,7 @@ With the following methods:
 During this milestone, I can complete/have the ability to do the following things:
 
 1. Understand most of the architechture easily and professional terminology when facing a new paper or some new technology published by someone
+2. modify some model architure if needed
 
 ## Milestone 2 (TODO):
 
