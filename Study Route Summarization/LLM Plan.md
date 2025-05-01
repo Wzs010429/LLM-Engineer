@@ -19,7 +19,7 @@
 
 ## Text to Image Generation
 
-
+1. Differs Huggingace library: https://huggingface.co/docs/diffusers/main/zh/index
 
 
 
